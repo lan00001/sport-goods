@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sporting Goods Store</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Sporting Goods Store</h1>
+    </header>
+    <main>
+        <h2>Products</h2>
+        <ul>
+            {% for product in products %}
+                <li>
+                     {{ product.name }} - ${{ product.price }} 
+                     <a href="{{ product.image.url }}">View Image</a>
+                     <a href="{% url 'delete_product' product.id %}">Delete</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </main>
+    <footer>
+        <p>&copy; 2024 Sporting Goods Store</p>
+    </footer>
+</body>
+</html>
